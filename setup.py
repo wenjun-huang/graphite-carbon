@@ -61,9 +61,11 @@ else:
 storage_dirs = [ ('storage/ceres/dummy.txt', []), ('storage/whisper/dummy.txt',[]),
                  ('storage/lists',[]), ('storage/log/dummy.txt',[]),
                  ('storage/rrd/dummy.txt',[]) ]
-conf_files = [ ('conf', glob('conf/*.example')) ]
+log_dirs = [ ('log', []) ]
+conf_files = [ ('conf', glob('conf/*.conf')) ]
+conf_examples = [ ('conf/examples', glob('conf/examples/*.example')) ]
 
-install_files = storage_dirs + conf_files
+install_files = storage_dirs + conf_files + conf_examples + log_dirs
 
 # Let's include redhat init scripts, despite build platform
 # but won't put them in /etc/init.d/ automatically anymore

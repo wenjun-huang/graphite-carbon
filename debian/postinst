@@ -1,0 +1,4 @@
+id -u _graphite > /dev/null 2>&1 || useradd --system _graphite
+chown -R _graphite:_graphite /opt/graphite/storage
+chown -R _graphite:_graphite /opt/graphite/log
+

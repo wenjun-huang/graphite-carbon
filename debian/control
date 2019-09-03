@@ -1,0 +1,14 @@
+Source: graphite-carbon
+Maintainer: Chris Davis <chrismd@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: dh-python, python-all (>= 2.6.6-3), debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: http://graphiteapp.org/
+
+Package: graphite-carbon
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-twisted-bin, python-whisper
+Description: Backend data caching and persistence daemon for Graphite
+ Backend data caching and persistence daemon for Graphite
+

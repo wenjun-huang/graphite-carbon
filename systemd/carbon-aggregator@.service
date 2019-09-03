@@ -1,0 +1,13 @@
+[Unit]
+Description=Graphite Carbon Aggregator %i
+After=network.target
+
+[Service]
+Type=forking
+StandardOutput=syslog
+StandardError=syslog
+ExecStart=/opt/graphite/bin/carbon-aggregator.py --config=/opt/graphite/conf/carbon.conf --instance %i --pidfile=/var/run/carbon-aggregator-%i.pid --logdir=/opt/graphite/log start
+PIDFile=/var/run/carbon-aggregator-%i.pid
+
+[Install]
+WantedBy=multi-user.target

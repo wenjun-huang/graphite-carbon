@@ -1,0 +1,13 @@
+#!/usr/bin/make -f  
+%:  
+	dh $@
+
+override_dh_auto_install:
+	python setup.py install --prefix=$$(pwd)/debian/graphite-carbon/opt/graphite --install-lib=$$(pwd)/debian/graphite-carbon/opt/graphite/lib
+	mkdir -p $$(pwd)/debian/graphite-carbon/lib/systemd/system
+	cp -r systemd/*.service $$(pwd)/debian/graphite-carbon/lib/systemd/system/
+	mkdir -p $$(pwd)/debian/graphite-carbon/etc/logrotate.d
+	cp logrotate.d/graphite-carbon $$(pwd)/debian/graphite-carbon/etc/logrotate.d
+
+override_dh_usrlocal:
+	@echo "skip override_dh_usrlocal"
